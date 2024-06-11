@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stye.css') }}">
+    <title>Samba server</title>
+</head>
+<body>
+    <div class="container">
+        <h1> Samba Share Contents </h1>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                 <div class="alert alert-{{ messages[0][0] }}"> 
+                    {{ messages[0][1] }}
+
+                 </div>
+            {% endif %}
+        {% endwith %}
+        
+        <ul>
+            {% for item in contents %}
+                <li>{{ item }}</li>
+            {% endfor %}    
+
+        </ul>
+        <div class="footer">
+            <p> 2024 Samba User Management</p>
+
+        </div>
+
+    </div>
+    
+</body>
+</html>
